@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+<boolean name="city_selected" value="true" />
+<string name="temp1">4℃</string>
+<string name="city_name">昆山</string>
+<string name="temp2">16℃</string>
+<string name="publish_time">18:00</string>
+<string name="current_date">2016年12月29日</string>
+<string name="weathercode">101190404</string>
+<string name="weather_desp">晴转多云</string>
+</map>

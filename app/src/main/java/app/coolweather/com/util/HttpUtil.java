@@ -34,6 +34,7 @@ public class HttpUtil {
                     BufferedReader br = new BufferedReader(new InputStreamReader(in));
                     StringBuilder sb = new StringBuilder();
                     String line;
+//                    int newData = 0;
                     while((line = br.readLine()) != null){
                         sb.append(line);
                     }
