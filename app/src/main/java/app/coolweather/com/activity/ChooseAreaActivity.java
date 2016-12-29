@@ -2,7 +2,10 @@ package app.coolweather.com.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -59,17 +62,25 @@ public class ChooseAreaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*从SharedPreference中读取selected_city的状态，如果为true直接跳转到WeatherActivity类中*/
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if(prefs.getBoolean("selected_city", false)){
+            Intent intent = new Intent(this, WeatherActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.choose_area);
+
         titleText = (TextView) findViewById(R.id.title_text);
         listView = (ListView) findViewById(R.id.list_view);
-
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
         listView.setAdapter(adapter);
-
         coolWeatherDB = CoolWeatherDB.getInStance(this);
         queryProvinces();
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -84,6 +95,12 @@ public class ChooseAreaActivity extends Activity {
                     Log.i(TAG, "selectedCity:"+selectedCity.getCityName()+" its code: "+selectedCity.getCityCode()+
                     " its id:"+selectedCity.getId());
                     queryCounties();
+                }else if(currentLevel == LEVEL_COUNTY){
+                    String countyCode = countyList.get(position).getCountyCode();
+                    Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class);
+                    intent.putExtra("county_code", countyCode);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });

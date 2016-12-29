@@ -30,15 +30,30 @@ public class HttpUtil {
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
                     InputStream in = connection.getInputStream();
+                    //1.
                     BufferedReader br = new BufferedReader(new InputStreamReader(in));
                     StringBuilder sb = new StringBuilder();
                     String line;
                     while((line = br.readLine()) != null){
                         sb.append(line);
                     }
+                    String response = sb.toString();
+
+                    //2.
+//                    byte[] by = new byte[in.available()];
+//                    //将数据读入到by数组，返回当前读取了几个字节
+//                    in.read(by);
+//                    String response = new String(by);
+
+                    //3.
+//                    byte[] by = new byte[1024];
+//                    int temp= in.read(by, 0, by.length);
+//                    String response = new String(by);
+//                    response.trim();
+
                     if(listener != null){
-                        Log.i(TAG, "response: "+sb.toString());
-                        listener.onFinish(sb.toString());
+                        Log.i(TAG, " response: "+response);
+                        listener.onFinish(response);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
