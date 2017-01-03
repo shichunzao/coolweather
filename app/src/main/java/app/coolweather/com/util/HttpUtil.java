@@ -22,6 +22,7 @@ public class HttpUtil {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                Log.i(TAG, "HttpUtil当前线程："+Thread.currentThread().getName());
                 HttpURLConnection connection = null;
                 try {
                     URL url = new URL(address);
@@ -34,11 +35,9 @@ public class HttpUtil {
                     BufferedReader br = new BufferedReader(new InputStreamReader(in));
                     StringBuilder sb = new StringBuilder();
                     String line;
-//                    int newData = 0;
                     while((line = br.readLine()) != null){
                         sb.append(line);
                     }
-//                    String response = sb.toString();
 
                     //2.
 //                    byte[] by = new byte[in.available()];
@@ -48,9 +47,15 @@ public class HttpUtil {
 
                     //3.
 //                    byte[] by = new byte[1024];
-//                    int temp= in.read(by, 0, by.length);
-//                    String response = new String(by);
-//                    response.trim();
+//                    while(true){
+//                        int temp= in.read(by, 0, by.length);
+//                        if(temp == -1){
+//                            break;
+//                        }
+//                        String response = new String(by);
+//                        sb.append(response);
+//                        response.trim();
+//                    }
 
                     if(listener != null){
                         Log.i(TAG, " response: "+sb.toString());

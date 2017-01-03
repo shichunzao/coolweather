@@ -90,7 +90,6 @@ public class ChooseAreaActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(currentLevel == LEVEL_PROVINCE){
-//                    Log.i(TAG, "currentLevel："+currentLevel+"  position:"+position);
                     selectedProvince = provinceList.get(position);
                     Log.i(TAG, "selectedProvince: "+selectedProvince.getProvinceName()+
                             " its code :"+selectedProvince.getProvinceCode()+" its id :"+selectedProvince.getId());

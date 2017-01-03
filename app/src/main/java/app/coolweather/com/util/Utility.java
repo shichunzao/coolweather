@@ -58,7 +58,7 @@ public class Utility {
             if (allCities != null && allCities.length > 0) {
                 for (String c : allCities) {
                     String[] array = c.split("\\|");
-                    Log.i(TAG, "array:" + Arrays.toString(array));
+//                    Log.i(TAG, "array:" + Arrays.toString(array));
                     City city = new City();
                     city.setCityCode(array[0]);
                     city.setCityName(array[1]);
@@ -80,7 +80,7 @@ public class Utility {
             if (allCounties != null && allCounties.length > 0) {
                 for (String c : allCounties) {
                     String[] array = c.split("\\|");
-                    Log.i(TAG, "County:" + Arrays.toString(array));
+//                    Log.i(TAG, "County:" + Arrays.toString(array));
                     County county = new County();
                     county.setCountyCode(array[0]);
                     county.setCountyName(array[1]);
