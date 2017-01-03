@@ -1,4 +1,4 @@
-package app.coolweather.com.activity;
+package app.coolweather.com.service;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

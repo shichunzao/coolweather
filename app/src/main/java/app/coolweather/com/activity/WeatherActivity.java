@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.coolweather.com.coolweather.R;
-import app.coolweather.com.model.City;
+import app.coolweather.com.service.AutoUpdateService;
 import app.coolweather.com.util.HttpCallbackListener;
 import app.coolweather.com.util.HttpUtil;
 import app.coolweather.com.util.Utility;
@@ -130,14 +130,6 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
             }
         });
     }
-
-//    editor.putString("city_name", cityName);
-//    editor.putString("weathercode", weatherCode);
-//    editor.putString("temp1", temp1);
-//    editor.putString("temp2", temp2);
-//    editor.putString("weather_desp", weatherDesp);
-//    editor.putString("publish_time", publishTime);
-//    editor.putString("current_date", sdf.format(new Date()));
 
     /*从SharePreference文件中读取存储的天气信息，并显示到界面上*/
     private void showWeather() {

@@ -38,7 +38,7 @@ public class HttpUtil {
                     while((line = br.readLine()) != null){
                         sb.append(line);
                     }
-                    String response = sb.toString();
+//                    String response = sb.toString();
 
                     //2.
 //                    byte[] by = new byte[in.available()];
@@ -53,11 +53,11 @@ public class HttpUtil {
 //                    response.trim();
 
                     if(listener != null){
-                        Log.i(TAG, " response: "+response);
-                        listener.onFinish(response);
+                        Log.i(TAG, " response: "+sb.toString());
+                        listener.onFinish(sb.toString());
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
                     if(listener != null){
                         listener.onError(e);
                     }

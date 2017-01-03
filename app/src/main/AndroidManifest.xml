@@ -20,7 +20,7 @@
         </activity>
         <activity android:name="app.coolweather.com.activity.WeatherActivity"></activity>
 
-        <service android:name="app.coolweather.com.activity.AutoUpdateService"></service>
+        <service android:name="app.coolweather.com.service.AutoUpdateService"></service>
 
         <receiver android:name="app.coolweather.com.receiver.AutoUpdateReceiver"></receiver>
 
